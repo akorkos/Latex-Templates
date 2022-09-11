@@ -1,0 +1,127 @@
+\documentclass{book}
+\usepackage[english,greek]{babel}
+\usepackage[default]{lato}
+\usepackage[x11names]{xcolor}
+\usepackage[pdfusetitle]{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage[bf]{caption}
+\usepackage[inline]{enumitem}  
+\usepackage[automark]{scrlayer-scrpage}
+\usepackage{amssymb, bm}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{array, tabularx}
+\usepackage{fontawesome}
+\usepackage{colortbl}
+\usepackage{dirtree}
+\usepackage{menukeys}
+\usepackage[
+    newfloat=true
+]{minted} 
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={4.0},
+    %imagewidth={7em}
+]{doclicense}
+\usepackage{mathtools}
+    \newtagform{brackets}{[}{]}
+    \usetagform{brackets}
+    \allowdisplaybreaks[2]
+
+\usepackage{lipsum}  
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Color definition                                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\colorlet{g3}{black!40}
+\definecolor{darklink}{RGB}{48, 62, 116}
+\definecolor{darklinkGreen}{RGB}{65, 107, 60}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Caption options                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addto\captionsenglish{\renewcommand{\figurename}{Σχήμα}}
+\addto\captionsenglish{\renewcommand{\tablename}{Πίνακας}}
+\addto\captionsenglish{\renewcommand{\bibname}{Πηγές}}
+\addto\captionsenglish{\renewcommand{\lstlistingname}{Κώδικας}}
+\addto\captionsenglish{\renewcommand{\listingname}{Κώδικας}}
+\addto\captionsenglish{\renewcommand{\chaptername}{Κεφάλαιο}}
+\addto\captionsenglish{\renewcommand{\contentsname}{Περιεχόμενα}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pagestyle options                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpairofpagestyles 
+\newlength{\headerrulelength}
+\setlength{\headerrulelength}{3ex}
+
+\newcommand*{\headerrule}{
+    \rule[-1ex]{0.1em}{\headerrulelength}
+}
+
+% Define headers:
+\lehead{% Left, even head
+    \llap{
+        \pagemark\enskip\headerrule
+    }
+    \enskip\headmark
+}
+
+\rohead{% Right, odd head
+    \headmark\enskip
+    \rlap{
+        \headerrule\enskip\pagemark
+    }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Code snippets options                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setminted{
+    autogobble=true,
+    fontsize=\footnotesize,
+    breaklines=true,
+    breakanywhere=false, 
+    breakbytokenanywhere=true, 
+    %escapeinside=¬¬,
+    frame=leftline, 
+    framerule=1pt,
+    rulecolor=\color{g3},
+    numbers=left,
+    numberfirstline=true, 
+    stepnumber=1, 
+    numbersep=2pt, 
+    style=manni,
+}
+
+\SetupFloatingEnvironment{listing}{name={Κώδικας}}
+
+\newenvironment{longlisting}{\captionsetup{type=listing}}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperref options                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+    colorlinks=true,
+    allcolors=darklink,
+    urlcolor=darklinkGreen,
+    plainpages=false,
+    pdftitle={...},
+    pdfsubject={...},
+    pdfcreator={LaTeX with hyperref},
+    pdfauthor={Αλέξανδρος Κόρκος / Alexandros Korkos},
+    bookmarksnumbered=true
+}
+
+
+\begin{document}
+    
+\end{document}
