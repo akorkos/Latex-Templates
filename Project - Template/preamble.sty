@@ -1,43 +1,52 @@
-\documentclass{book}
+
 \usepackage[english,greek]{babel}
 \usepackage[default]{lato}
 \usepackage[x11names]{xcolor}
 \usepackage[pdfusetitle]{hyperref}
-\usepackage[most]{tcolorbox}
+\usepackage{tcolorbox}
 \usepackage[bf]{caption}
 \usepackage[inline]{enumitem}  
 \usepackage[automark]{scrlayer-scrpage}
 \usepackage{amssymb, bm}
 \usepackage{enumerate}
 \usepackage{multicol}
-\usepackage{float}
+\usepackage{floatrow}
 \usepackage{array, tabularx}
-\usepackage{fontawesome}
+\usepackage{fontawesome5}
 \usepackage{colortbl}
 \usepackage{dirtree}
 \usepackage{menukeys}
+\usepackage{mathtools}
+\usepackage{listings}
+%\usepackage[Glenn]{fncychap}
+\usepackage{amsthm}
+\usepackage{mdframed}
 \usepackage[
     newfloat=true
 ]{minted} 
-\usepackage[
-    type={CC},
-    modifier={by-nc-sa},
-    version={4.0},
-    %imagewidth={7em}
-]{doclicense}
-\usepackage{mathtools}
-    \newtagform{brackets}{[}{]}
-    \usetagform{brackets}
-    \allowdisplaybreaks[2]
+
 
 \usepackage{lipsum}  
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Example enviroment	                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mdfdefinestyle{theoremstyle}{
+	innertopmargin=\topskip,
+	roundcorner=5pt,
+	hidealllines=true,
+	backgroundcolor=g6
+}
+\mdtheorem[style=theoremstyle]{example}{Παράδειγμα}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Color definition                                                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\colorlet{g1}{black!70}
 \colorlet{g3}{black!40}
+\colorlet{g6}{black!05}
 \definecolor{darklink}{RGB}{48, 62, 116}
 \definecolor{darklinkGreen}{RGB}{65, 107, 60}
 
@@ -117,11 +126,35 @@
     pdftitle={...},
     pdfsubject={...},
     pdfcreator={LaTeX with hyperref},
-    pdfauthor={Αλέξανδρος Κόρκος / Alexandros Korkos},
+    pdfauthor={Alexandros Korkos},
     bookmarksnumbered=true
 }
 
+\newcommand{\Rule}{\rule{\linewidth}{0.5mm}}
 
-\begin{document}
-    
-\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Float options			                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\floatsetup{footposition=bottom}% For all floats
+
+\floatsetup[longtable]{LTcapwidth=table}% https://tex.stackexchange.com/a/345772/120853
+
+\floatsetup[table]{%
+    style=plaintop,% Always above, no matter where \caption is called
+    footnoterule=none,%
+    footskip=.35\skip\footins,%
+}%
+
+\floatsetup[figure]{%
+    capbesideposition=right,%
+    capbesidesep=quad,%
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Math enviroment options                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtagform{brackets}{[}{]}
+\usetagform{brackets}
+\allowdisplaybreaks[2]
