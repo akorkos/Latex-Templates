@@ -1,0 +1,103 @@
+\usepackage{lmodern}
+\usepackage[datesep=/,greek]{datetime2}
+\usepackage{xgreek}
+\usepackage[Greek,Latin]{ucharclasses}
+\usepackage{gfsneohellenicot}
+\usepackage{hyperref}
+\usepackage{lipsum}  
+
+\usepackage[
+    newfloat=true
+]{minted} 
+
+\setminted{
+    autogobble=true,
+    fontsize=\footnotesize,
+    breaklines=true,
+    breakanywhere=false, 
+    breakbytokenanywhere=true, 
+    %escapeinside=¬¬,
+    frame=leftline, 
+    framerule=1pt,
+    rulecolor=\color{g3},
+    numbers=left,
+    numberfirstline=true, 
+    stepnumber=1, 
+    numbersep=2pt, 
+    style=manni,
+}
+
+\SetupFloatingEnvironment{listing}{name={Κώδικας}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Color definition                                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{DarkGreen}{RGB}{65, 107, 60}
+\definecolor{DarkBlue}{RGB}{48, 62, 116} 
+\colorlet{g3}{black!40}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Languages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setTransitionsForGreek{\setlanguage{greek}}{\setlanguage{english}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fonts                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{fontspec}
+%\setmainfont{Minion Pro} % substitute with any font that exists on your system
+%\setsansfont{GFSNeohellenic.otf} % substitute with any font that exists on your system
+%\setmonofont{Consolas} % substitute with any font that exists on your system
+
+\setsansfont[
+	UprightFont=GFSNeohellenic,
+    ItalicFont=GFSNeohellenicIt,
+	BoldFont=GFSNeohellenicBold,
+	BoldItalicFont=GFSNeohellenicBoldIt,	 
+    RawFeature=+pnum,
+    WordSpace={0.75,0.75,1},
+    Scale=1.2 
+]{GFSNeohellenic.otf}
+\usefonttheme{professionalfonts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer style settings                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<presentation>{
+    \usetheme{Madrid} 
+    \useinnertheme{circles}
+}
+
+\setbeamertemplate{footline}[page number]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{enumerate items}[default]
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[default]
+
+\usecolortheme[named=DarkBlue]{structure}
+
+\titlegraphic{\includegraphics[scale=0.2]{images/logo_auth.png}\hspace*{1cm}\includegraphics[scale=0.28]{images/logo_csd.png}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperref options                                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+    colorlinks=true,
+    allcolors=DarkBlue,
+    urlcolor=DarkGreen,
+    plainpages=false,
+    pdfcreator={LaTeX with Beamer},
+    pdfauthor={Alexandros Korkos},
+    bookmarksnumbered=true
+}
+
+\newcommand{\Rule}{\rule{\linewidth}{0.5mm}}
+
+\setbeamertemplate{caption}[numbered]
